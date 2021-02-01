@@ -2,7 +2,7 @@ var app = new Vue({
     el:'#app',
     data:{
         brotou:false,
-        frutas:['laranja','abacaxi'],
+        frutas:[{nome:'laranja',preco:5.252},{nome:'abacaxi',preco:4.244}],
         compono:'<em>'+'Caju'+'</em>'
     },
     methods:{
@@ -16,7 +16,7 @@ var app = new Vue({
     },
     filters:{
         precificacao(vl){
-            return vl.toFixed(2);
+            return "R$"+vl.toFixed(1);
         }
     }
 })
