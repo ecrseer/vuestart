@@ -3,7 +3,7 @@ var app = new Vue({
     data:{
         brotou:false,
         frutas:[{nome:'laranja',preco:5.252},{nome:'abacaxi',preco:4.244}],
-        compono:'<em>'+'Caju'+'</em>'
+        compono:'<em>'+'Minhas frutas'+'</em>'
     },
     methods:{
         brotar(){
