@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    <div id="app">
+        <button v-on:click="brotar">
+            brotar
+        </button>
+        <div v-if="brotou">
+            <li v-for="fruta in frutas">
+                {{fruta}}
+            </li>
+        </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="vu.js"></script>
+    </body>
+</html>
