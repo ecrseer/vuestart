@@ -11,13 +11,13 @@
         </button>
         <div v-if="brotou">
             <li v-for="fruta in frutas">
-                <button @click="adicionaCarrinho($event,fruta.nome)">add</button>
+                <button @click="adicionaCarrinho($event,fruta.id)">add</button>
                 {{fruta.nome}} preço: {{fruta.preco|precificacao}}
             </li>
         </div>
         <div>-------------------------------
             <li v-for="produt in sacola">
-                {{produt}}
+                {{produt.nome}}
             </li>
         </div>
     </div>
