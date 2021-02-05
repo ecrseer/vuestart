@@ -13,8 +13,7 @@ var app = new Vue({
             this.brotou=!this.brotou;
         },
         adicionaCarrinho(httt,idprodselec){
-            console.log('d'
-                );
+            
           this.sacola.push(this.frutas.find(fru=>fru.id==idprodselec));
           this.frutas = this.frutas.filter(
               fru=>fru.id!=idprodselec)
@@ -26,11 +25,14 @@ var app = new Vue({
     filters:{
         precificacao(vl){
             return "R$"+vl.toFixed(1);
-        },
+        }
+    },
         computed:{
-           total(){
-               return this.sacola
-           }
-        },
-    }
+            total(){
+                let tota = 0;
+                tota =tota+ this.sacola.reduce(
+                    (acumulador,produ)=>acumulador+produ.preco,0);
+                    return tota;
+            },
+        }
 })
