@@ -2,24 +2,80 @@
 <html>
     <head>
 
+        <link href="main.css" rel="stylesheet" type="text/css" />
+
     </head>
-    <body>
-    <div id="app">
+    <body v-bind:class="{'escurin':darkmode_ap1}">
+    <div id="app" >
         <div v-html="compono"></div>
+        <button v-on:click="ActvDarkMod">te</button>
         <button @click="brotar">
-            brotar
+            editar
         </button>
-        <div v-if="brotou">
+        
             <li v-for="fruta in frutas">
+                <div v-if="brotou">
+                    {{fruta.nome}} 
+                    <br/>preço: {{fruta.preco|precificacao}}
+                    <br/> quantidade{{fruta.qtd}}
+                </div>
+                <div v-else>
+                    <input v-model.trim.lazy="fruta.nome">
+                    <input v-model.number.lazy="fruta.qtd">
+                </div>
                 <button @click="adicionaCarrinho($event,fruta.id)">add</button>
-                {{fruta.nome}} preço: {{fruta.preco|precificacao}}
+                <input type="checkbox" 
+                id="iid"
+                v-model="sacolado"
+                value="falses"
+                v-bind:true-value="meunome"
+                v-bind:false-value="meunomefa">
+                <label for="iid">comon</label> bugg
+
+                
+                <input type="radio" 
+                v-model.lazy="sacolado"
+                v-bind:value="meunomefa"
+                 value="Sim">Vou levar
+                <input type="radio"
+                 v-model.lazy="sacolado"
+                 v-bind:value="meunome"
+                 value="Nao">Vou nao
+                    <br/>
+                <select v-model.lazy="meunome">
+                    <option  disabled value="">longlive</option>
+                    <option v-bind:value="tipofruta.as">Aspera</option>
+                    <option v-bind:value="tipofruta.ma">macia</option>
+                    <option v-bind:value="tipofruta.du">dura</option>
+                </select>
+                <select v-model="meunomefa">
+                    <option  disabled value="">aspera</option>
+                    <option 
+                    v-for="(tifruta,indx) in tipofruta[0]"
+                    v-bind:value="tifruta"
+                    >{{indx}}</option>
+                    
+                    
+                </select>
+                qtd:
+                <input v-model.number="fruta.qtd"><br/>
+                <span v-bind:class="{'ratinA':mContCss(cnt,fruta)}"
+                v-for="cnt in 16">la- </span>
             </li>
-        </div>
-        <div>-------------------------------
+        
+        <button v-on:click="mostraSacola">mostraSacola</button>
+        <div v-if="mostraSaco">-------------------------------
+            
             <li v-for="produt in sacola">
                 {{produt.nome}}
+                <br/>quantidade:<input type ="number" v-model="produt.qtd">
+                
             </li>
-        </div>___________ Total:{{total|precificacao}}
+            ____ Total:{{total|precificacao}}
+        </div>
+        <div v-else>
+            Sacola escondida
+        </div>
     </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="vu.js"></script>
