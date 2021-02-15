@@ -8,6 +8,7 @@ body{
 .escurin{
     background-color: darkslategrey;
     color: antiquewhite;
+    
 }
 #app{
     display: grid;
