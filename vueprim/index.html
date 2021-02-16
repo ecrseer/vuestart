@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
-        " integrity="sha384-
-        BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+        
         <link href="main.css" rel="stylesheet" type="text/css" />
 
     </head>
-    <body v-bind:class="{'escurin':darkmode_ap1}">
-    <div id="app" >
+    <body >
+    <div id="app" v-bind:class="{'escurin':darkmode_ap1}">
         <div v-html="compono"></div>
-        <button v-on:click="ActvDarkMod">te</button>
-        <button @click="brotar">
+        <button v-on:click="ActvDarkMod" v-bind:class="{'escurin':darkmode_ap1}">{{darkmode_ap1?'Clarear':'Escurecer'}}</button>
+        <button @click="brotar" v-bind:class="{'escurin':darkmode_ap1}">
             editar
         </button>
         
@@ -27,7 +23,7 @@
                     <input v-model.trim.lazy="fruta.nome">
                     <input v-model.number.lazy="fruta.qtd">
                 </div>
-                <button @click="adicionaCarrinho($event,fruta.id)">add</button>
+                <button @click="adicionaCarrinho($event,fruta.id)" v-bind:class="{'escurin':darkmode_ap1}">add</button>
                 <input type="checkbox" 
                 id="iid"
                 v-model="sacolado"
@@ -46,13 +42,13 @@
                  v-bind:value="meunome"
                  value="Nao">Vou nao
                     <br/>
-                <select v-model.lazy="meunome">
+                <select v-model.lazy="meunome" v-bind:class="{'escurin':darkmode_ap1}">
                     <option  disabled value="">longlive</option>
                     <option v-bind:value="tipofruta.as">Aspera</option>
                     <option v-bind:value="tipofruta.ma">macia</option>
                     <option v-bind:value="tipofruta.du">dura</option>
                 </select>
-                <select v-model="meunomefa">
+                <select v-model="meunomefa" v-bind:class="{'escurin':darkmode_ap1}">
                     <option  disabled value="">aspera</option>
                     <option 
                     v-for="(tifruta,indx) in tipofruta[0]"
@@ -62,12 +58,12 @@
                     
                 </select>
                 qtd:
-                <input v-model.number="fruta.qtd"><br/>
+                <input v-model.number="fruta.qtd" v-bind:class="{'escurin':darkmode_ap1}"><br/>
                 <span v-bind:class="{'ratinA':mContCss(cnt,fruta)}"
                 v-for="cnt in 16">la- </span>
             </li>
         
-        <button v-on:click="mostraSacola">mostraSacola</button>
+        <button v-on:click="mostraSacola" v-bind:class="{'escurin':darkmode_ap1}">mostraSacola</button>
         <div v-if="mostraSaco">-------------------------------
             
             <li v-for="produt in sacola">

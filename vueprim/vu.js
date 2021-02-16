@@ -8,7 +8,7 @@ var app = new Vue({
             {as:201,ma:301}
         ],
         bckColor:'darkslategrey',
-        brotou:true,
+        brotou:false,
         frutas:[{id:23,nome:'laranja',
         preco:5.252,qtd:42,star:6},
         {id:25,nome:'abacaxi',preco:4.244,
@@ -19,8 +19,9 @@ var app = new Vue({
         sacolado:true,
         meunome:'nao pode',
         meunomefa:'igual',
-        darkmode_ap1:false,
+        darkmode_ap1:true,
         tipofrutas:['alecrim','dourado'],
+        petshp:[{}]
 
     },
     methods:{
@@ -47,6 +48,13 @@ var app = new Vue({
     },
     beforeCreate:function(){
         this.compono = '<em> carregando...</em>'
+    },
+    created:function(){
+        const result = axios.get('./assets/data.json')
+        .then((rsp)=>{
+            this.petshp=rsp.data.products;
+        }).catch(()=>{console.log('fedeu')})
+        console.log('baixando dados');
     },
     filters:{
         precificacao(vl){
